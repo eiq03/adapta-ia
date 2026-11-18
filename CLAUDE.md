@@ -56,7 +56,8 @@ Aprovadas pelo grupo em 15/11/2026.
 
 ## Estado atual
 
-Atualizado em 18/11/2026. As specs 001 a 007 estão implementadas e publicadas; 29 das 30
+Atualizado em 18/11/2026. As specs 001 e 003 a 007 estão implementadas e publicadas; a 002 (PowerPoint) foi
+implementada, mas saiu da tela e foi para a V2 em 18/11; 29 das 30
 tarefas estão concluídas (até a T27, adicionar imagem em qualquer questão). Falta a T21 (testes com materiais reais,
 gravação das respostas de reserva, vídeo e ensaio), na tarde de 18/11, seguindo
 `docs/roteiro-demonstracao.md`.

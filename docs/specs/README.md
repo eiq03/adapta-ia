@@ -47,7 +47,7 @@ instalar a ferramenta (decisão de 15/11/2026).
 | Spec | Funcionalidade | RFs | Tarefas | Estado |
 |---|---|---|---|---|
 | [001](001-adaptar-material.md) | Adaptar material (imagem ou texto) | RF-01, 04, 05, 06, 08, 09, 19, 26, 27 | T00, T03, T04, T05, T06, T08a, T10, T12, T22 | aprovada |
-| [002](002-powerpoint.md) | Adaptar slides de PowerPoint | RF-02, 03 | T07, T08b, T11 | aprovada |
+| [002](002-powerpoint.md) | Adaptar slides de PowerPoint | RF-02, 03 | T07, T08b, T11 | adiada (V2) |
 | [003](003-perfil-do-aluno.md) | Perfil do aluno | RF-07, 08 | T18 | aprovada |
 | [004](004-revisar-folha.md) | Revisar a folha | RF-10, 11, 13 | T13, T14, T16 | aprovada |
 | [005](005-nova-versao.md) | Nova versão a pedido | RF-12 | T09, T15 | aprovada |

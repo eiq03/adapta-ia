@@ -212,6 +212,10 @@ em qualquer questão) entrou depois do meio-dia. Motivo: só muda a tela, não m
 IA (as respostas de reserva gravadas à tarde não mudam) e foi conferida no navegador antes de
 publicar.
 
+**Corte (18/11, à tarde):** decidido pelo Gabriel, o botão PowerPoint saiu da tela e a spec 002
+foi para a V2. Motivo: no teste com uma aula real, as figuras dos slides sumiam e a aula virava
+questões; o professor espera slides de volta (RF-22, RF-23). O código do leitor continua.
+
 ---
 
 ## E7 — Ensaio e apresentação

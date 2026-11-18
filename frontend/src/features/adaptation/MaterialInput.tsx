@@ -6,15 +6,15 @@ import { buttonClass, INPUT_CLASS } from '@/shared/ui/styles';
 
 import Dropzone from './Dropzone';
 import { MAX_UPLOAD_BYTES, reduceImage } from './reduceImage';
-import SlidePicker from './SlidePicker';
 
 export const MAX_TEXT_LENGTH = 20_000;
 type Mode = OriginalMaterial['kind'];
 
+// The PowerPoint option is hidden until V2 (decision of 18/11): the sheet loses the slide
+// figures. SlidePicker and the server route stay, so turning it back on is one line.
 const MODES: { mode: Mode; label: string; icon: IconName }[] = [
   { mode: 'image', label: 'Foto da prova', icon: 'camera' },
   { mode: 'text', label: 'Colar texto', icon: 'text' },
-  { mode: 'slides', label: 'PowerPoint', icon: 'slides' },
 ];
 const ACCEPTED = 'image/png,image/jpeg,image/webp,image/heic,image/heif,.heic,.heif';
 
@@ -24,8 +24,7 @@ interface MaterialInputProps {
   onError: (message: string) => void;
 }
 
-/** Photo of the blank test (reduced in the browser), pasted text or PowerPoint slides
- * (RF-01, RF-19, RF-02). */
+/** Photo of the blank test (reduced in the browser) or pasted text (RF-01, RF-19). */
 export default function MaterialInput({ value, onChange, onError }: MaterialInputProps) {
   const [mode, setMode] = useState<Mode>(value?.kind ?? 'image');
   const [reducing, setReducing] = useState(false);
@@ -51,7 +50,7 @@ export default function MaterialInput({ value, onChange, onError }: MaterialInpu
   return (
     <fieldset>
       <legend className="sr-only">Material</legend>
-      <div className="mb-4 grid grid-cols-3 gap-1 rounded-xl bg-slate-100 p-1">
+      <div className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1">
         {MODES.map((option) => (
           <button
             key={option.mode}
@@ -65,12 +64,6 @@ export default function MaterialInput({ value, onChange, onError }: MaterialInpu
           </button>
         ))}
       </div>
-      {mode === 'slides' && (
-        <SlidePicker
-          onChange={(slides) => onChange(slides.length > 0 ? { kind: 'slides', slides } : null)}
-          onError={onError}
-        />
-      )}
       {mode === 'image' &&
         (value?.kind === 'image' ? (
           <div className="animate-fade-in flex flex-wrap items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-3">

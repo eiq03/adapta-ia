@@ -9,7 +9,7 @@ const STEPS: { icon: IconName; title: string; text: string }[] = [
   {
     icon: 'camera',
     title: 'Envie o material',
-    text: 'Foto da prova em branco, texto colado ou slides do PowerPoint.',
+    text: 'Foto da prova em branco ou texto colado.',
   },
   {
     icon: 'user',
