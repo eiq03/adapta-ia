@@ -207,6 +207,11 @@ A T22 não é cortável: ela é a reserva da apresentação. Se faltar tempo, co
 **C4 — 18/11, 12h: congelamento.** Depois disso, só entra correção de erro que quebra a
 demonstração.
 
+**Exceção ao congelamento (18/11, 13h30):** aprovada pelo Gabriel, a T27 (adicionar imagem
+em qualquer questão) entrou depois do meio-dia. Motivo: só muda a tela, não muda o pedido à
+IA (as respostas de reserva gravadas à tarde não mudam) e foi conferida no navegador antes de
+publicar.
+
 ---
 
 ## E7 — Ensaio e apresentação

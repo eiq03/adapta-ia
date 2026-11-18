@@ -44,6 +44,11 @@ preto e branco, para a folha ficar certa para o meu aluno.
 - **CA-004-27** [manual] (17/11) Uma palavra-chave sem pictograma (removido pelo professor ou
   deixado sem imagem pelo servidor, R-001-10) aparece só na tela como "+ palavra", tracejada.
   Clico, escolho um pictograma e ele entra na folha. Na impressão, o "+ palavra" não sai.
+- **CA-004-28** [manual] (18/11) Toda questão e toda instrução com menos de 3 pictogramas
+  mostra, só na tela, o botão tracejado "+ imagem", mesmo sem a opção "precisa de mais
+  imagens". Clico, busco uma palavra, escolho um pictograma e ele entra na etapa, com a palavra
+  buscada embaixo. Com 3 pictogramas, o botão some. O texto de apoio não tem o botão (R-001-07).
+  Na impressão, o botão não sai.
 - **CA-004-26** [manual] Removo a figura recortada de uma questão: a questão continua, sem a
   figura, e aparece o aviso `NEEDS_FIGURE` para aquela questão.
 - **CA-004-25** [manual] As edições ficam salvas: se a spec 007 estiver pronta, ao reabrir a
