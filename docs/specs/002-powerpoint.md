@@ -1,6 +1,9 @@
 # 002 — Adaptar slides de PowerPoint
 
-- **Estado:** aprovada (16/11/2026)
+- **Estado:** adiada para a V2 (18/11/2026). Implementada, mas o botão PowerPoint foi tirado
+  da tela: no teste com uma aula real, a folha perdia as figuras dos slides e virava questões.
+  O professor espera receber slides. Volta na V2 junto com RF-22 e RF-23 (saída em slides,
+  mantendo as figuras). O leitor e a rota do servidor continuam, com os testes.
 - **Requisitos:** RF-02, RF-03
 - **Tarefas:** T07, T08b, T11
 - **Depende de:** spec 001 (a adaptação em si)

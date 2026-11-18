@@ -78,8 +78,8 @@ spec pode contrariar estão em [constituicao.md](constituicao.md).
 | Id | Requisito | Versão |
 |---|---|---|
 | RF-01 | Aceitar foto ou imagem como entrada | E1 |
-| RF-02 | Aceitar PowerPoint (.pptx) como entrada, lendo o texto dos slides | E1 |
-| RF-03 | Mostrar os slides do arquivo e permitir escolher quais adaptar, até 5 por vez, gerando uma única adaptação | E1 |
+| RF-02 | Aceitar PowerPoint (.pptx) como entrada, lendo o texto dos slides | V2 (feito, oculto na tela em 18/11) |
+| RF-03 | Mostrar os slides do arquivo e permitir escolher quais adaptar, até 5 por vez, gerando uma única adaptação | V2 (feito, oculto na tela em 18/11) |
 | RF-04 | Ler o conteúdo do material e reescrever em frases curtas, uma instrução por etapa | E1 |
 | RF-05 | Preservar o objetivo de aprendizagem e os termos da disciplina; em prova, manter todas as questões com a numeração do original e todas as alternativas | E1 |
 | RF-06 | Associar pictogramas do ARASAAC às palavras-chave, com busca em português; em prova, só no enunciado | E1 |

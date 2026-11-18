@@ -33,7 +33,7 @@ export default function AdaptationForm({ onDone }: AdaptationFormProps) {
 
   const send = async () => {
     if (!material) {
-      showError('Envie a foto da prova, cole o texto ou marque os slides.');
+      showError('Envie a foto da prova ou cole o texto.');
       return;
     }
     const adaptation = await submit({

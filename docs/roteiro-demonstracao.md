@@ -14,8 +14,8 @@
 - [ ] Abrir o site. O cabeçalho mostra "Servidor conectado" e **nenhum** selo amarelo.
 - [ ] Página **Perfis**: importar `perfis-demonstracao.json` (exportado no ensaio). Conferir o
       perfil "Aluno A".
-- [ ] Deixar na área de trabalho: `matematica-7ano-figuras.jpg`, `ciencias-sistema-solar.jpg`
-      e `powerpoint/ciclo-da-agua.pptx`.
+- [ ] Deixar na área de trabalho: `matematica-7ano-figuras.jpg` e `ciencias-sistema-solar.jpg`.
+      O PowerPoint não entra: foi para a V2 (resposta pronta na seção de perguntas difíceis).
 - [ ] Abrir em abas: `docs/specs/001-adaptar-material.md` (no GitHub),
       `backend/tests/test_prompt.py` e a seção 4 de `docs/arquitetura.md` (camadas).
 - [ ] Vídeo da demonstração aberto num player, pausado no início (última reserva).
@@ -71,8 +71,8 @@ perfil e a mesma foto reduzida pelo mesmo navegador.
 1. No computador da apresentação, no Git Bash, na pasta `backend`:
    `AI_PROVIDER=gemini AI_RECORD=on .venv/Scripts/python.exe -m uvicorn app.main:app --port 8000`
 2. Noutro terminal, na pasta `frontend`: `npm run dev`. Abrir http://localhost:5173 no Chrome.
-3. Importar `perfis-demonstracao.json` e rodar os passos 3 e 7 da seção 2, e também o
-   PowerPoint. São cerca de 4 pedidos.
+3. Importar `perfis-demonstracao.json` e rodar os passos 3 e 7 da seção 2. São cerca de
+   3 pedidos.
 4. Conferir os arquivos novos em `backend/app/ai_providers/replay_answers/`.
 5. Fazer commit e pedido de revisão desses arquivos, juntar na `main` e publicar o servidor.
 6. Testar o modo demonstração **local**: parar o servidor e subir de novo com
@@ -92,6 +92,7 @@ outras edições antes. Na dúvida, no modo demonstração, pular o passo 7.
 | Por que não um banco de dados no servidor? | Exigiria login e levaria diagnóstico para fora do computador; há exportar e importar | Spec 003, R-003-04 |
 | Quanto custa? | Zero: Gemini, ARASAAC e Render gratuitos; limite de 20 pedidos por dia | Constituição P4 |
 | O que é SDD aqui? | Spec aprovada antes do código; cada critério vira um teste com o mesmo identificador | `docs/specs/README.md` |
+| E o PowerPoint? | O leitor de slides está pronto e testado, mas a folha perdia as figuras e virava questões; o professor espera slides de volta. Saiu da tela e volta na V2 com a saída em slides | Spec 002; RF-22, RF-23 |
 | E se a IA cair na apresentação? | Provedores trocáveis: o mesmo servidor responde com o que foi gravado no ensaio | Arquitetura, seção 7 |
 
 ## 6. Conferência do ensaio (16h–17h)
