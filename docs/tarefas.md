@@ -83,6 +83,7 @@ O calendário, as etapas e os pontos de controle (o que cortar se atrasar) estã
 | T24 | Pictogramas no sentido da frase | Entrega | T06 | Gabriel | concluída |
 | T25 | Exportar e importar perfis | Entrega | T18 | Gabriel | concluída |
 | T26 | Pictogramas ambíguos e sensíveis | Entrega | T24 | Gabriel | concluída |
+| T27 | Adicionar imagem em qualquer questão | Entrega | T14 | Gabriel | concluída |
 | T21 | Testar e roteiro da demonstração | Entrega | Tudo que for entregue | | livre |
 
 Estados: `livre`, `em andamento`, `em revisão`, `concluída`.
@@ -401,6 +402,19 @@ início da tarefa.
   (certo). No navegador: removi um pictograma, apareceu "+ texto" só na tela, escolhi de
   novo e a imagem voltou.
 - **Corrigido junto:** linha longa em `prompt.py` que o `ruff check` acusava desde o PR #36.
+
+#### T27 — Adicionar imagem em qualquer questão
+- **Pedido em 18/11 (exceção ao congelamento, ver roadmap):** o professor pode pôr imagem do
+  ARASAAC em qualquer questão ou instrução, mesmo sem a opção "precisa de mais imagens".
+- **Pastas:** `frontend/src/features/sheet/`
+- **Decidido em 18/11:** questões e instruções (o texto de apoio fica igual ao original); até
+  3 pictogramas por etapa; embaixo da imagem, a palavra buscada.
+- **Pronto quando:** CA-004-28 conferido no navegador.
+- **Feito em 18/11:** conferido com a IA simulada: "+ imagem" na instrução e nas 2 questões,
+  não no texto de apoio nem nas alternativas; a janela abre como "Adicionar imagem", com a dica
+  e sem "Remover"; "computador" e "livro" entraram com a palavra embaixo; com 3, o botão some.
+  Uma nova versão a pedido busca os pictogramas de novo, então as imagens postas à mão podem
+  se perder (o aviso da spec 005 já diz isso).
 
 #### T21 — Testar e roteiro da demonstração
 - **Objetivo:** testar com materiais reais e preparar a apresentação.

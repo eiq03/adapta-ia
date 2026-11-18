@@ -10,12 +10,15 @@ import { usePictogramSearch } from './usePictogramSearch';
 interface PictogramPickerProps {
   keyword: Keyword;
   color: boolean;
-  onChoose: (pictogramId: number) => void;
-  onRemove: () => void;
+  /** The word searched goes along: it is the caption of an added pictogram (CA-004-28). */
+  onChoose: (pictogramId: number, word: string) => void;
+  /** Absent when adding a new pictogram: there is nothing to remove yet. */
+  onRemove?: () => void;
   onClose: () => void;
 }
 
-/** Spec 004: swap (CA-004-21), search another word (CA-004-22) or remove (CA-004-23). */
+/** Spec 004: swap (CA-004-21), search another word (CA-004-22), remove (CA-004-23) or add
+ * (CA-004-28, the keyword comes with an empty word). */
 export default function PictogramPicker({
   keyword,
   color,
@@ -44,7 +47,7 @@ export default function PictogramPicker({
     >
       <header className="flex items-center justify-between gap-4 border-b border-slate-200 px-6 py-4">
         <h2 id="picker-title" className="text-xl font-bold">
-          Pictograma de “{keyword.word}”
+          {keyword.word ? `Pictograma de “${keyword.word}”` : 'Adicionar imagem'}
         </h2>
         <button
           type="button"
@@ -84,6 +87,11 @@ export default function PictogramPicker({
           </button>
         </form>
         <div className="min-h-40">
+          {status === 'idle' && (
+            <p className="text-slate-600">
+              Digite uma palavra e clique em Buscar. Ela aparece embaixo da imagem na folha.
+            </p>
+          )}
           {status === 'loading' && (
             <p className="flex items-center gap-2 text-slate-600">
               <Icon name="refresh" className="size-4 animate-spin" />
@@ -104,7 +112,7 @@ export default function PictogramPicker({
                 <li key={id}>
                   <button
                     type="button"
-                    onClick={() => onChoose(id)}
+                    onClick={() => onChoose(id, query)}
                     aria-pressed={id === keyword.pictogramId}
                     className="relative w-full rounded-xl border-2 border-slate-200 bg-white p-1.5 transition-colors hover:border-brand-400 hover:bg-brand-50 aria-pressed:border-brand-600 aria-pressed:bg-brand-50"
                   >
@@ -121,10 +129,14 @@ export default function PictogramPicker({
         </div>
       </div>
       <footer className="flex flex-wrap justify-between gap-3 border-t border-slate-200 bg-slate-50 px-6 py-4">
-        <button type="button" onClick={onRemove} className={buttonClass('dangerSoft', 'md')}>
-          <Icon name="trash" className="size-4" />
-          Remover pictograma
-        </button>
+        {onRemove ? (
+          <button type="button" onClick={onRemove} className={buttonClass('dangerSoft', 'md')}>
+            <Icon name="trash" className="size-4" />
+            Remover pictograma
+          </button>
+        ) : (
+          <span />
+        )}
         <button
           type="button"
           onClick={onClose}

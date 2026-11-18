@@ -4,6 +4,7 @@ import type { Adaptation, StudentProfile } from '@/shared/types/contract';
 import type { OriginalMaterial } from '@/shared/types/original';
 
 import {
+  addPictogram,
   type KeywordRef,
   removeFigure,
   type SheetActions,
@@ -45,9 +46,15 @@ export default function AdaptationResult({
   const [picking, setPicking] = useState<KeywordRef | null>(null);
   const imageUrl = original.kind === 'image' ? original.url : null;
   const [color, setColor] = useState(true);
-  const pickedKeyword = picking
-    ? adaptation.steps.find((step) => step.id === picking.stepId)?.keywords[picking.index]
+  const pickedStep = picking
+    ? adaptation.steps.find((step) => step.id === picking.stepId)
     : undefined;
+  // CA-004-28: an index past the last keyword means "add a new pictogram".
+  const adding =
+    picking !== null && pickedStep !== undefined && picking.index >= pickedStep.keywords.length;
+  const pickedKeyword = adding
+    ? { word: '', searchTerm: '', pictogramId: null }
+    : picking && pickedStep?.keywords[picking.index];
 
   const actions: SheetActions = {
     pickPictogram: setPicking,
@@ -56,8 +63,12 @@ export default function AdaptationResult({
     removeFigure: (stepId) => onChange(removeFigure(adaptation, stepId)),
   };
 
-  function choose(pictogramId: number | null) {
-    if (picking) onChange(setPictogram(adaptation, picking, pictogramId));
+  function choose(pictogramId: number | null, word = '') {
+    if (picking && adding && pictogramId !== null) {
+      onChange(addPictogram(adaptation, picking.stepId, word, pictogramId));
+    } else if (picking) {
+      onChange(setPictogram(adaptation, picking, pictogramId));
+    }
     setPicking(null);
   }
 
@@ -91,7 +102,7 @@ export default function AdaptationResult({
           keyword={pickedKeyword}
           color={color}
           onChoose={choose}
-          onRemove={() => choose(null)}
+          onRemove={adding ? undefined : () => choose(null)}
           onClose={() => setPicking(null)}
         />
       )}

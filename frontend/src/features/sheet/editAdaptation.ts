@@ -41,6 +41,23 @@ export function setPictogram(
   }));
 }
 
+/** Most pictograms a step can have, counting the ones the teacher adds (CA-004-28). */
+export const MAX_STEP_PICTOGRAMS = 3;
+
+/** CA-004-28: the teacher adds a pictogram to a step; the caption is the word searched. */
+export function addPictogram(
+  adaptation: Adaptation,
+  stepId: string,
+  word: string,
+  pictogramId: number,
+): Adaptation {
+  return updateStep(adaptation, stepId, (step) =>
+    step.keywords.length >= MAX_STEP_PICTOGRAMS
+      ? step
+      : { ...step, keywords: [...step.keywords, { word, searchTerm: word, pictogramId }] },
+  );
+}
+
 /** CA-004-20: new text for a step. R-004-03: pictograms stay until the teacher removes them. */
 export function setStepText(adaptation: Adaptation, stepId: string, text: string): Adaptation {
   return updateStep(adaptation, stepId, (step) => ({ ...step, text }));

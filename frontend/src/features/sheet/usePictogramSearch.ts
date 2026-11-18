@@ -3,16 +3,18 @@ import { useCallback, useEffect, useState } from 'react';
 import { ApiError } from '@/shared/api/client';
 import { searchPictograms } from '@/shared/api/pictograms';
 
-type Status = 'loading' | 'done' | 'error';
+type Status = 'idle' | 'loading' | 'done' | 'error';
 
-/** Options from ARASAAC for a word; starts with `initialQuery` (CA-004-21, CA-004-22). */
+/** Options from ARASAAC for a word; starts with `initialQuery` (CA-004-21, CA-004-22).
+ * With an empty `initialQuery` (adding a pictogram, CA-004-28) it waits for the first search. */
 export function usePictogramSearch(initialQuery: string) {
   const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState<number[]>([]);
-  const [status, setStatus] = useState<Status>('loading');
+  const [status, setStatus] = useState<Status>(initialQuery ? 'loading' : 'idle');
   const [error, setError] = useState('');
 
   useEffect(() => {
+    if (!query) return undefined;
     let active = true;
     searchPictograms(query)
       .then((ids) => {
